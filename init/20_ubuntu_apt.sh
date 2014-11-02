@@ -10,6 +10,7 @@ sudo apt-get autoclean
 
 # Install APT packages.
 packages=(
+  tmux
   zsh
   build-essential
   fortune
