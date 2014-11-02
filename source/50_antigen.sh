@@ -18,7 +18,7 @@ antigen bundle cabal
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Set the theme. Glorious two-line prompt!
-antigen theme tjkirch
+antigen theme $DOTFILES/conf/tjkirch-angry.zsh-theme
 
 # Tell antigen we're done.
 antigen apply
