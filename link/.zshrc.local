@@ -1,7 +1,35 @@
+# GOTTA GET DOTFILES GOING FIRST
+export DOTFILES=~/.dotfiles
+
+# Add binaries into the path
+PATH=$DOTFILES/bin:$PATH
+export PATH
+
+# Source all files in "source"
+function src() {
+  local file
+  if [[ -n "$1" ]]; then
+    source "$DOTFILES/source/$1.sh"
+  else
+    for file in $DOTFILES/source/*; do
+      source "$file"
+    done
+  fi
+}
+
+# Run dotfiles script, then source.
+function dotfiles() {
+  $DOTFILES/bin/dotfiles "$@" && src
+}
+
+src
+
+# THANK GOODNESS THAT'S OVER
+
 #ZSH_THEME="tjkirch"
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=~/.cabal/bin:$PATH
+PATH=$HOME/bin:/usr/local/bin:$PATH
+PATH=~/.cabal/bin:$PATH
 
 alias palmetto="ssh -X ama2@user.palmetto.clemson.edu"
 alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
