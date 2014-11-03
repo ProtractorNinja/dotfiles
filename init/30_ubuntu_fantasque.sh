@@ -8,12 +8,12 @@ e_header "Installing Fantasque Sans."
 START=http://openfontlibrary.org/assets/downloads/fantasque-sans-mono/
 
 # Figure out the location of the latest version.
-wget -q -O tmp.html $START?C=M;O=A
+wget -q -O tmp.html "$START?C=M;O=A"
 RELEASE_URL=`cat tmp.html | grep -o -E "[a-f0-9]{32}" | tail -1`
 rm tmp.html
 
 # Download that font.
-wget -q $START/$RELEASE_URL/fantasque-sans-mono.zip
+wget -q "$START/$RELEASE_URL/fantasque-sans-mono.zip"
 
 # Slam that font into life.
 mkdir -p $DOTFILES/link/.fonts/fantasque-sans
