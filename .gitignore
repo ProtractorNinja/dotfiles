@@ -12,3 +12,7 @@
 
 # Ignore any file with LOCAL in the name (good for per-machine vars/functions)
 *LOCAL*
+
+# Fantasque sans gets re-installed from the latest
+# every time, so ignore it.
+/link/.fonts/fantasque-sans
