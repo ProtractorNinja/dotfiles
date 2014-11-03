@@ -24,6 +24,8 @@ packages=(
   sl
   telnet
   tree
+  texlive-full
+  latexmk
 )
 
 packages=($(setdiff "${packages[*]}" "$(dpkg --get-selections | grep -v deinstall | awk '{print $1}')"))
