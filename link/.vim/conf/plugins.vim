@@ -19,7 +19,7 @@ Plugin 'gmarik/Vundle.vim'
 " PLUGINS
 "Plugin 'terryma/vim-multiple-cursors'   " Just like sublime text!
 "Plugin 'edsono/vim-matchit'             " Better matching with %
-"Plugin 'ervandew/supertab'               " Tab completion is better than C-N
+"Plugin 'ervandew/supertab'              " Tab completion is better than C-N
 Plugin 'raimondi/delimitMate'            " Auto-match parens, etc.
 Plugin 'airblade/vim-gitgutter'          " Git diffing info in the gutter
 Plugin 'bling/vim-airline'               " Better status line
@@ -46,6 +46,7 @@ Plugin 'Shougo/neomru.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
 "Plugin 'myusuf3/numbers.vim'
+Plugin 'tpope/vim-abolish'               " Handle multiple variants of a word.
 
 " Not working
 " Plugin 'Valloric/YouCompleteMe'          " Completion engine

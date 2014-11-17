@@ -35,5 +35,5 @@ sudo update-alternatives --install /usr/bin/vi vi /usr/bin/gvim 1
 sudo update-alternatives --set vi /usr/bin/gvim
 
 e_header "Setting up Vundle."
-ln -s $DOTFILES/vendor/Vundle.vim $DOTFILES/link/.vim/bundle/Vundle.vim
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall

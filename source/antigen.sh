@@ -8,14 +8,23 @@ source $DOTFILES/vendor/antigen/antigen.zsh
 # Enable use of oh-my-zsh! themes.
 antigen use oh-my-zsh
 
-# Git & git extras helpers.
-antigen bundle git
+# Eliminate redundancy with a HEREDOC.
+antigen bundles << EOBUNDLES
 
-# Cabal completions.
-antigen bundle cabal
+   # Git & git extras helpers.
+   git
 
-# Syntax highlighting on the prompt.
-antigen bundle zsh-users/zsh-syntax-highlighting
+   # Cabal completions.
+   cabal
+
+   # Syntax highlighting on the prompt.
+   zsh-users/zsh-syntax-highlighting
+
+   # Z is the new j, yo. It's a directory jumper.
+   rupa/z
+
+EOBUNDLES
+
 
 # Set the theme. Glorious two-line prompt!
 antigen theme $DOTFILES/conf/tjkirch-angry.zsh-theme
