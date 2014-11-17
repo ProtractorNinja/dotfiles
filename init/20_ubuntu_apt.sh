@@ -41,9 +41,6 @@ fi
 # Change my shell to zsh
 sudo chsh -s /bin/zsh $USER
 
-# Change my WM to i3
-sudo sh -c "echo /usr/bin/i3 > /etc/X11/default-display-manager"
-
 # Who am I?
 e_header "Choose you a machine name!"
 read machine_name
