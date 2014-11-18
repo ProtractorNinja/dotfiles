@@ -2,18 +2,17 @@
 is_ubuntu || return 1
 
 e_header "Installing compilation prerequisites."
-sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev \
+sudo apt-get -qq install libncurses5-dev libgnome2-dev libgnomeui-dev \
     libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
     libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
     ruby-dev mercurial checkinstall
 
 e_header "Removing old vim installs."
-sudo apt-get remove vim vim-runtime gvim
-sudo apt-get remove vim-tiny vim-common vim-gui-common
+sudo apt-get -qq remove vim vim-runtime vim-common vim-gui-common gvim
 
 e_header "Cloning VIM repository."
 cd ~
-hg clone https://code.google.com/p/vim/
+hg clone https://code.google.com/p/vim/ ~/vim-build
 cd vim
 ./configure --with-features=huge \
             --enable-multibyte \
@@ -26,7 +25,7 @@ cd vim
 make VIMRUNTIMEDIR=/usr/share/vim/vim74
 
 e_header "Compiling and installing."
-sudo checkinstall
+sudo checkinstall -y --pkgname vim
 
 e_header "Setting defaults to GVIM."
 sudo update-alternatives --install /usr/bin/editor editor /usr/bin/gvim 1
@@ -36,4 +35,5 @@ sudo update-alternatives --set vi /usr/bin/gvim
 
 e_header "Setting up Vundle."
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
+
+e_header "Done with VIM! Run it and install those plugins when you're ready, champ!"

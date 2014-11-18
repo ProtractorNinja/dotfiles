@@ -1,13 +1,6 @@
 # Ubuntu-only stuff. Abort if not Ubuntu.
 is_ubuntu || return 1
 
-# Update APT.
-e_header "Updating APT"
-sudo apt-get update
-sudo apt-get dist-upgrade
-sudo apt-get autoremove
-sudo apt-get autoclean
-
 # Install APT packages.
 packages=(
   i3
@@ -40,11 +33,6 @@ fi
 
 # Change my shell to zsh
 sudo chsh -s /bin/zsh $USER
-
-# Who am I?
-e_header "Choose you a machine name!"
-read machine_name
-sudo sh -c "echo $machine_name > /etc/hostname"
 
 # Install Git Extras
 #if [[ ! "$(type -P git-extras)" ]]; then
