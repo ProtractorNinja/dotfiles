@@ -33,6 +33,9 @@ export PATH
 # Seems to be the only way to get colors working...
 export TERM='xterm-256color'
 
+# GVIM forever!
+export EDITOR=gvim
+
 # Launch TMUX if it's not running already.
 # If not running interactively, do not do anything
 [[ $- != *i* ]] && return
@@ -46,3 +49,9 @@ alias gitrc="gvim ~/.gitconfig"
 
 # Xclip copies to the syncable clipboard
 alias xclip=xclip -selection c
+
+# I never use vim!
+alias vim=gvim
+
+# End with the wisdom of the ancients
+fortune
