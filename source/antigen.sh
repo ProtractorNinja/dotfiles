@@ -11,17 +11,17 @@ antigen use oh-my-zsh
 # Eliminate redundancy with a HEREDOC.
 antigen bundles << EOBUNDLES
 
-   # Git & git extras helpers.
-   git
+  # Git & git extras helpers.
+  git
 
-   # Cabal completions.
-   cabal
+  # Cabal completions.
+  cabal
 
-   # Syntax highlighting on the prompt.
-   zsh-users/zsh-syntax-highlighting
+  # Syntax highlighting on the prompt.
+  zsh-users/zsh-syntax-highlighting
 
-   # Z is the new j, yo. It's a directory jumper.
-   rupa/z
+  # Z is the new j, yo. It's a directory jumper.
+  rupa/z
 
 EOBUNDLES
 
