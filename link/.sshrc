@@ -1,1 +1,11 @@
-printf "Update your .sshrc, stupid!\n"
+echo "Update your .sshrc, idiot!"
+
+# Copy over vim configuration files
+export VIMINIT="let \$MYVIMRC='$SSHHOME/.sshrc.d/.vimrc' | source \$MYVIMRC"
+
+# Reconnect to a real machine if on access.cs.clemson
+MACHINE=imp24
+if [ $(hostname | grep 'access[12]\?.cs.clemson.edu' | wc -l) == 1 ]; then
+   echo 'Hey, welcome to access! Let me take you over to a real machine...'
+   sshrc -t -X $MACHINE
+fi

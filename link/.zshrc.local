@@ -42,8 +42,8 @@ export EDITOR=gvim
 [[ -z "$TMUX" ]] && exec tmux
 
 alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
-alias zshrc="gvim ~/.zshrc.local && reload"
-alias gitrc="gvim ~/.gitconfig"
+alias zshrc="$EDITOR ~/.zshrc.local && reload"
+alias gitrc="$EDITOR ~/.gitconfig"
 
 # Xclip copies to the syncable clipboard
 alias xclip=xclip -selection c
@@ -52,10 +52,8 @@ alias xclip=xclip -selection c
 alias vim=gvim
 
 # SSH aliases
-MACHINE=imp24
-alias ssh="sshrc"
-alias palmetto="ssh -X ama2@user.palmetto.clemson.edu"
-alias lab="ssh -t -X ama2@access.cs.clemson.edu \"ssh -t -X $MACHINE\""
+alias palmetto="sshrc -X ama2@user.palmetto.clemson.edu"
+alias lab="sshrc -X -t ama2@access1.cs.clemson.edu"
 
 # End with the wisdom of the ancients
 fortune
