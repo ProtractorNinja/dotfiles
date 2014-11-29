@@ -26,6 +26,13 @@ src
 
 # THANK GOODNESS THAT'S OVER
 
+# Launch TMUX if it's not running already.
+# If not running interactively, do not do anything
+[[ $- != *i* ]] && return
+[[ -z "$TMUX" ]] && exec tmux
+
+# TIME TO MESS WITH SOME VARIABLES
+
 PATH=$HOME/bin:/usr/local/bin:$PATH
 PATH=~/.cabal/bin:$PATH
 export PATH
@@ -36,24 +43,70 @@ export TERM='xterm-256color'
 # GVIM forever!
 export EDITOR=gvim
 
-# Launch TMUX if it's not running already.
-# If not running interactively, do not do anything
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux
+# Forces less to..
+#  R -- show raw color codes
+#  S -- not wrap long lines
+#  M -- speak up (verbose prompt)
+#  ~ -- not show tildes after EOF
+#  g -- highlight results
+#  I -- case-insensitively search (with /)
+#  s -- compress emtpy lines
+#  w -- highlight the first line after page down
+export LESS="-RSM~gIsw"
 
+# Load in colors for LESS
+[[ -f ~/.LESS_TERMCAP ]] && . ~/.LESS_TERMCAP
+
+# TIME FOR ALIASES
+
+# Some saner command defaults
+alias diff='colordiff'
+alias more='less'
+alias df='df -h'
+alias mkdir='mkdir -p -v'
+alias nano='nano -w'
+alias ping='ping -c 5'
+alias dmesg='dmesg -HL'
+
+# Some "new" commands
+alias da='date "+%A, %B %d, %Y [%T]"'
+alias du1='du --max-depth=1'
+alias hist='history | grep'         # requires an argument
+alias openports='ss --all --numeric --processes --ipv4 --ipv6'
+alias pgg='ps -Af | grep'           # requires an argument
+
+# Reload configs
 alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 alias zshrc="$EDITOR ~/.zshrc.local && reload"
 alias gitrc="$EDITOR ~/.gitconfig"
 
-# Xclip copies to the syncable clipboard
-alias xclip=xclip -selection c
+# Safety commands
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -I'                    # 'rm -i' prompts for every file
+# safer alternative w/ timeout, not stored in history
+alias rm=' timeout 3 rm -Iv --one-file-system'
+alias ln='ln -i'
+alias chown='chown --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
+alias cls=' echo -ne "\033c"'       # clear screen for real (it does not work in Terminology)
 
-# I never use vim!
-alias vim=gvim
+# Make Shell error tolerant
+alias :q=' exit'
+alias :Q=' exit'
+alias :x=' exit'
+alias cd..='cd ..'
+
+# Xclip copies to the syncable clipboard
+alias xclip='xclip -selection c'
 
 # SSH aliases
 alias palmetto="sshrc -X ama2@user.palmetto.clemson.edu"
 alias lab="sshrc -X -t ama2@access1.cs.clemson.edu"
+
+# Pastebin easily with this!
+alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 
 # End with the wisdom of the ancients
 fortune
