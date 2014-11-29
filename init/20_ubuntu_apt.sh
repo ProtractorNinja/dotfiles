@@ -4,6 +4,8 @@ is_ubuntu || return 1
 # Install APT packages.
 packages=(
   i3
+  curl
+  colordiff
   tmux
   zsh
   build-essential
