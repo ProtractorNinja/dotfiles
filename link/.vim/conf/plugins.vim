@@ -1,69 +1,75 @@
 set nocompatible " be iMproved, required
 filetype off     " required
 
-" set the runtime path to include Vundle and initialize
-if has("win32")
-   set rtp+=~/vimfiles/bundle/Vundle.vim/
-   let path='~/vimfiles/bundle'
-   call vundle#begin(path)
-elseif has("unix")
-   set rtp+=~/.vim/bundle/Vundle.vim
-   call vundle#begin()
+if has('vim_starting')
+  " set the runtime path to include NeoBundle and initialize
+  " Might not be working on win32, needs testing
+  if has("win32")
+    set runtimepath+=~/vimfiles/bundle/neobundle.vim/
+    let path='~/vimfiles/bundle'
+    call neobundle#begin(expand(path))
+  elseif has("unix")
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+    let path='~/.vim/bundle/'
+    call neobundle#begin(expand(path))
+  endif
 endif
+
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" let NeoBundle manage NeoBundle, required
+NeoBundle 'Shougo/neobundle.vim'
 
 " PLUGINS
-"Plugin 'terryma/vim-multiple-cursors'   " Just like sublime text!
-"Plugin 'edsono/vim-matchit'             " Better matching with %
-"Plugin 'ervandew/supertab'              " Tab completion is better than C-N
-Plugin 'raimondi/delimitMate'            " Auto-match parens, etc.
-Plugin 'airblade/vim-gitgutter'          " Git diffing info in the gutter
-Plugin 'bling/vim-airline'               " Better status line
-Plugin 'ctrlpvim/ctrlp.vim'              " File, buffer, mru finder
-Plugin 'davidoc/taskpaper.vim'           " Just like in Taskpaper.
-Plugin 'junegunn/vim-easy-align'         " Align text... easily.
-Plugin 'kshenoy/vim-signature'           " Marks in the gutter
-Plugin 'lokaltog/vim-easymotion'         " Super fast navigation!
-Plugin 'majutsushi/tagbar'               " Show ctags
-Plugin 'mhinz/vim-startify'              " Start menu!
-Plugin 'plasticboy/vim-markdown'         " Markdown highlighting
-Plugin 'rhysd/clever-f.vim'              " Use f to repeat f instead of ;
-Plugin 'scrooloose/nerdcommenter'        " Easy comments
-Plugin 'scrooloose/nerdtree'             " File navigation
-Plugin 'tpope/vim-fugitive'              " Git wrapper for VIM
-Plugin 'tpope/vim-repeat'                " Dot works for plugins
-Plugin 'tpope/vim-surround'              " Manipulate parens, quotes, etc.
-Plugin 'wellle/targets.vim'              " More & smarter text objects
-Plugin 'xolox/vim-misc'                  " Required for vim-shell (GVIM Windows)
-Plugin 'xolox/vim-shell'                 " Actually fullscreen (GVIM Windows)
-Plugin 'nathanaelkane/vim-indent-guides' " Show indents visually
-Plugin 'godlygeek/csapprox'              " Approximate GUI colors for terminal
-Plugin 'Shougo/neomru.vim'
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/vimproc.vim'
-"Plugin 'myusuf3/numbers.vim'
-Plugin 'tpope/vim-abolish'               " Handle multiple variants of a word.
+"NeoBundle 'terryma/vim-multiple-cursors'   " Just like sublime text!
+"NeoBundle 'edsono/vim-matchit'             " Better matching with %
+"NeoBundle 'ervandew/supertab'              " Tab completion is better than C-N
+NeoBundle 'raimondi/delimitMate'            " Auto-match parens, etc.
+NeoBundle 'airblade/vim-gitgutter'          " Git diffing info in the gutter
+NeoBundle 'bling/vim-airline'               " Better status line
+NeoBundle 'ctrlpvim/ctrlp.vim'              " File, buffer, mru finder
+NeoBundle 'davidoc/taskpaper.vim'           " Just like in Taskpaper.
+NeoBundle 'junegunn/vim-easy-align'         " Align text... easily.
+NeoBundle 'kshenoy/vim-signature'           " Marks in the gutter
+NeoBundle 'lokaltog/vim-easymotion'         " Super fast navigation!
+NeoBundle 'majutsushi/tagbar'               " Show ctags
+NeoBundle 'mhinz/vim-startify'              " Start menu!
+NeoBundle 'plasticboy/vim-markdown'         " Markdown highlighting
+NeoBundle 'rhysd/clever-f.vim'              " Use f to repeat f instead of ;
+NeoBundle 'scrooloose/nerdcommenter'        " Easy comments
+NeoBundle 'scrooloose/nerdtree'             " File navigation
+NeoBundle 'tpope/vim-fugitive'              " Git wrapper for VIM
+NeoBundle 'tpope/vim-repeat'                " Dot works for plugins
+NeoBundle 'tpope/vim-surround'              " Manipulate parens, quotes, etc.
+NeoBundle 'wellle/targets.vim'              " More & smarter text objects
+NeoBundle 'xolox/vim-misc'                  " Required for vim-shell (GVIM Windows)
+NeoBundle 'xolox/vim-shell'                 " Actually fullscreen (GVIM Windows)
+NeoBundle 'nathanaelkane/vim-indent-guides' " Show indents visually
+NeoBundle 'godlygeek/csapprox'              " Approximate GUI colors for terminal
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimproc.vim'
+"NeoBundle 'myusuf3/numbers.vim'
+NeoBundle 'tpope/vim-abolish'               " Handle multiple variants of a word.
 
 " Not working
-" Plugin 'Valloric/YouCompleteMe'          " Completion engine
+" NeoBundle 'Valloric/YouCompleteMe'          " Completion engine
 
 " SNIPPETS
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-"Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'              " Precompiled snippets
+NeoBundle 'MarcWeber/vim-addon-mw-utils'
+NeoBundle 'tomtom/tlib_vim'
+"NeoBundle 'garbas/vim-snipmate'
+NeoBundle 'honza/vim-snippets'              " Precompiled snippets
 
 " COLORSCHEMES
-Plugin 'tomasr/molokai'
-Plugin 'pychimp/vim-luna'
+NeoBundle 'tomasr/molokai'
+NeoBundle 'pychimp/vim-luna'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call neobundle#end()         " required
 filetype plugin indent on    " required
+NeoBundleCheck               " Checks if any plugins need installing
 " VUNDLE MANDATORY OPTIONS OVER; PLUGIN SETTINGS TO FOLLOW
 
 " COLORS

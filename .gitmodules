@@ -4,9 +4,6 @@
 [submodule "vendor/antigen"]
 	path = vendor/antigen
 	url = https://github.com/zsh-users/antigen.git
-[submodule "vendor/Vundle.vim"]
-	path = vendor/Vundle.vim
-	url = https://github.com/gmarik/Vundle.vim.git
 [submodule "vendor/sshrc"]
 	path = vendor/sshrc
 	url = git@github.com:Russell91/sshrc.git
