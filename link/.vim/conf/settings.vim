@@ -36,9 +36,9 @@ set smartindent             " smart auto indenting
 set smarttab                " smart tab handling for indenting
 set magic                   " change the way backslashes are used in search patterns
 set bs=indent,eol,start     " allow backspacing over everything in insert mode
-set tabstop=3               " number of spaces a tab counts for
-set shiftwidth=3            " spaces for autoindents
-set expandtab               " turn a tabs into spaces
+set tabstop=2               " number of spaces a tab counts for
+set shiftwidth=2            " spaces for autoindents
+set expandtab               " turn a tab into spaces
 "set fileformat=unix        " file mode is unix
 "set fileformats=unix,dos   " only detect unix file format, displays that ^M with dos files
 set si                      " Smart indent
@@ -74,7 +74,7 @@ if &t_Co > 2 || has("gui_running")
 
 endif
 
-" ONT SETTINGS
+" FONT SETTINGS
 if has('gui_running')
     if has('unix')
        set guifont=Fantasque\ Sans\ Mono\ 18
@@ -94,7 +94,6 @@ set pastetoggle=<F10>
 filetype plugin indent on
 
 " FILE TYPE SPECIFIC SETTINGS
-" I don't even know how these work! I'm leaving them here just in case, though...
 if has("autocmd")
     " For debugging
     "set verbose=9
@@ -113,6 +112,7 @@ if has("autocmd")
 
         " Confirm to PEP8
         au FileType python set tabstop=4 softtabstop=4 expandtab shiftwidth=4 cinwords=if,elif,else,for,while,try,except,finally,def,class
+        au FileType make set noexpandtab
     augroup END
 
     " Always jump to the last known cursor position.
