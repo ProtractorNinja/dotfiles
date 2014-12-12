@@ -24,7 +24,6 @@ NeoBundle 'Shougo/neobundle.vim'
 " PLUGINS
 "NeoBundle 'terryma/vim-multiple-cursors'   " Just like sublime text!
 "NeoBundle 'edsono/vim-matchit'             " Better matching with %
-"NeoBundle 'ervandew/supertab'              " Tab completion is better than C-N
 NeoBundle 'raimondi/delimitMate'            " Auto-match parens, etc.
 NeoBundle 'airblade/vim-gitgutter'          " Git diffing info in the gutter
 NeoBundle 'bling/vim-airline'               " Better status line
@@ -52,14 +51,40 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc.vim'
 "NeoBundle 'myusuf3/numbers.vim'
 NeoBundle 'tpope/vim-abolish'               " Handle multiple variants of a word.
-
-" Not working
-" NeoBundle 'Valloric/YouCompleteMe'          " Completion engine
-
-" SNIPPETS
 NeoBundle 'MarcWeber/vim-addon-mw-utils'
 NeoBundle 'tomtom/tlib_vim'
-"NeoBundle 'garbas/vim-snipmate'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'tpope/vim-eunuch'
+NeoBundle 'tpope/vim-characterize'
+NeoBundle 'tpope/vim-commentary'
+
+" PLUGINS WITH COMPILATION SETTINGS
+
+" Required for some Shougo plugins (like Unite's async functions)
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
+
+" Tab completion engine
+NeoBundle 'Valloric/YouCompleteMe', {
+\ 'build' : {
+\     'mac' : './install.sh --clang-completer',
+\     'unix' : './install.sh --clang-completer',
+\     'linux' : './install.sh --clang-completer',
+\     'windows' : './install.sh --clang-completer',
+\     'cygwin' : './install.sh --clang-completer'
+\    }
+\ }
+
+" SNIPPETS
+NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'              " Precompiled snippets
 
 " COLORSCHEMES
@@ -117,7 +142,17 @@ let g:delimitMate_expand_inside_quotes = 1
 let g:delimitMate_expand_cr            = 1
 let g:delimitMate_jump_expansion       = 1
 autocmd FileType vim let b:delimitMate_quotes = "' ` *"
+autocmd FileType cpp let b:delimitMate_matchpairs = "(:),[:],{:}"
+autocmd FileType latex let b:delimitMate_matchpairs = "`:',(:),[:],{:},<:>"
 
 " UNITE
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
 let g:unite_source_history_yank_enable = 1
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+
+" ULTISNIPS / YCM
+" Stolen from http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
+"let g:ycm_key_list_select_completion = ['<C-n>', '<Up>']
+"let g:ycm_key_list_previous_completion = ['<C-p>', '<Down>']
+
+" Bind expand snippet to c-s
+let g:UltiSnipsExpandTrigger = "<c-s>"

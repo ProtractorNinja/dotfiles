@@ -39,8 +39,8 @@ set bs=indent,eol,start     " allow backspacing over everything in insert mode
 set tabstop=2               " number of spaces a tab counts for
 set shiftwidth=2            " spaces for autoindents
 set expandtab               " turn a tab into spaces
-"set fileformat=unix        " file mode is unix
-"set fileformats=unix,dos   " only detect unix file format, displays that ^M with dos files
+set fileformat=unix         " file mode is unix
+set fileformats=unix,dos    " only detect unix file format, displays that ^M with dos files
 set si                      " Smart indent
 set ai                      " Auto-indent
 

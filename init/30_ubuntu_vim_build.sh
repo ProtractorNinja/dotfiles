@@ -5,7 +5,7 @@ e_header "Installing compilation prerequisites."
 sudo apt-get -qq install libncurses5-dev libgnome2-dev libgnomeui-dev \
     libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
     libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
-    ruby-dev mercurial checkinstall
+    ruby-dev mercurial checkinstall build-essential cmake
 
 e_header "Removing old vim installs."
 sudo apt-get -qq remove vim vim-runtime vim-common vim-gui-common gvim
