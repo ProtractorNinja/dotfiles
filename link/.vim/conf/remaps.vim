@@ -48,10 +48,11 @@ omap <LEADER><LEADER>/ <Plug>(easymotion-tn)\n
 noremap <LEADER>gs :Gstatus<CR>
 
 " UNITE
-nnoremap <LEADER>up :Unite -no-split -buffer-name=files     -start-insert file_rec/async<cr>
+nnoremap <LEADER>uf :Unite -no-split -buffer-name=files     -start-insert file_rec/async<cr>
 nnoremap <LEADER>ur :Unite -no-split -buffer-name=registers -quick-match  register<cr>
 nnoremap <LEADER>ut :Unite -no-split -buffer-name=git-files -start-insert file_rec/git<cr>
 nnoremap <LEADER>ub :Unite -no-split -buffer-name=buffers   -quick-match  buffer<CR>
-nnoremap <LEADER>um :Unite -no-split -buffer-name=mru       -start-insert file_mru<cr>
+nnoremap <LEADER>um :Unite -no-split -buffer-name=mru       -start-insert neomru/file<cr>
+nnoremap <LEADER>uw :Unite -no-split -buffer-name=windows   -start-insert window<cr>
 nnoremap <LEADER>ug :Unite -buffer-name=grep grep:.<CR>
 nnoremap <LEADER>uy :Unite -buffer-name=yoink! history/yank<CR>
