@@ -7,3 +7,6 @@
 [submodule "vendor/sshrc"]
 	path = vendor/sshrc
 	url = git@github.com:Russell91/sshrc.git
+[submodule "vendor/bats"]
+	path = vendor/bats
+	url = https://github.com/sstephenson/bats.git

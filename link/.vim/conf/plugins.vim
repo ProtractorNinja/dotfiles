@@ -35,7 +35,7 @@ NeoBundle 'lokaltog/vim-easymotion'         " Super fast navigation!
 NeoBundle 'majutsushi/tagbar'               " Show ctags
 NeoBundle 'mhinz/vim-startify'              " Start menu!
 NeoBundle 'plasticboy/vim-markdown'         " Markdown highlighting
-NeoBundle 'rhysd/clever-f.vim'              " Use f to repeat f instead of ;
+"NeoBundle 'rhysd/clever-f.vim'              " Use f to repeat f instead of ;
 NeoBundle 'scrooloose/nerdcommenter'        " Easy comments
 NeoBundle 'scrooloose/nerdtree'             " File navigation
 NeoBundle 'tpope/vim-fugitive'              " Git wrapper for VIM

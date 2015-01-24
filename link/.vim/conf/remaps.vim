@@ -1,5 +1,4 @@
 " GENERAL REMAPS
-noremap ; :
 nnoremap j gj
 nnoremap k gk
 
@@ -56,3 +55,4 @@ nnoremap <LEADER>um :Unite -no-split -buffer-name=mru       -start-insert neomru
 nnoremap <LEADER>uw :Unite -no-split -buffer-name=windows   -start-insert window<cr>
 nnoremap <LEADER>ug :Unite -buffer-name=grep grep:.<CR>
 nnoremap <LEADER>uy :Unite -buffer-name=yoink! history/yank<CR>
+
