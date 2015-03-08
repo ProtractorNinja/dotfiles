@@ -20,12 +20,15 @@ nnoremap <SPACE> <NOP>
 
 nnoremap <LEADER>s :source $MYVIMRC<CR>
 nnoremap <silent> <LEADER><cr> :noh<cr>
-nnoremap <LEADER>t :set cursorline! cursorcolumn!<CR>
+
+" TOGGLES
+nnoremap <LEADER>tc :set cursorline! cursorcolumn!<CR>
+nnoremap <LEADER>tr :RainbowParentheses!!<CR>
 
 " PLUGIN MANAGEMENT
 noremap <LEADER>pi :NeoBundleInstall<CR>
 noremap <LEADER>pu :NeoBundleUpdate<CR>
-noremap <LEADER>pc :NeoBundlNeoBundleCR>
+noremap <LEADER>pc :NeoBundleClean<CR>
 
 " EASY ALIGN
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
@@ -47,12 +50,13 @@ omap <LEADER><LEADER>/ <Plug>(easymotion-tn)\n
 noremap <LEADER>gs :Gstatus<CR>
 
 " UNITE
-nnoremap <LEADER>uf :Unite -no-split -buffer-name=files     -start-insert file_rec/async<cr>
-nnoremap <LEADER>ur :Unite -no-split -buffer-name=registers -quick-match  register<cr>
-nnoremap <LEADER>ut :Unite -no-split -buffer-name=git-files -start-insert file_rec/git<cr>
-nnoremap <LEADER>ub :Unite -no-split -buffer-name=buffers   -quick-match  buffer<CR>
-nnoremap <LEADER>um :Unite -no-split -buffer-name=mru       -start-insert neomru/file<cr>
-nnoremap <LEADER>uw :Unite -no-split -buffer-name=windows   -start-insert window<cr>
-nnoremap <LEADER>ug :Unite -buffer-name=grep grep:.<CR>
-nnoremap <LEADER>uy :Unite -buffer-name=yoink! history/yank<CR>
+nnoremap <LEADER>u   <NOP>
+nnoremap <LEADER>uf  :Unite -no-split -buffer-name=files     -start-insert file_rec/async<cr>
+nnoremap <LEADER>ur  :Unite -no-split -buffer-name=registers -quick-match  register<cr>
+nnoremap <LEADER>ugt :Unite -no-split -buffer-name=git-files -start-insert file_rec/git<cr>
+nnoremap <LEADER>ub  :Unite -no-split -buffer-name=buffers   -start-insert buffer<CR>
+nnoremap <LEADER>um  :Unite -no-split -buffer-name=mru       -start-insert neomru/file<cr>
+nnoremap <LEADER>uw  :Unite -no-split -buffer-name=windows   -start-insert window<cr>
+nnoremap <LEADER>ug  :Unite -buffer-name=grep grep:.<CR>
+nnoremap <LEADER>uy  :Unite -buffer-name=yoink! history/yank<CR>
 
