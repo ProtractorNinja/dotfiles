@@ -35,7 +35,11 @@ src
 
 PATH=$HOME/bin:/usr/local/bin:$PATH
 PATH=~/.cabal/bin:$PATH
+PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH
+
+# RVM is a whiny little...
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # Seems to be the only way to get colors working...
 export TERM='xterm-256color'
@@ -97,6 +101,9 @@ alias :q=' exit'
 alias :Q=' exit'
 alias :x=' exit'
 alias cd..='cd ..'
+
+# Clone a new copy of my Makefile
+alias magimake='git clone git@github.com:ProtractorNinja/cu-handin-magic-make.git'
 
 # Xclip copies to the syncable clipboard
 alias xclip='xclip -selection c'
